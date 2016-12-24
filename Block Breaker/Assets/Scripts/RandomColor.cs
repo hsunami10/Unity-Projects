@@ -16,7 +16,7 @@ public class RandomColor : MonoBehaviour {
 		text.text = "Block Breaker";
 
 		// Starting in 0 seconds, the color will change every 0.2 seconds
-		InvokeRepeating ("RandColor", 0.0f, 0.2f);
+		InvokeRepeating ("RandColor", 0.0f, 0.30f);
 	}
 
 	void RandColor() {

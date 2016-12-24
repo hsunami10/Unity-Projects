@@ -19,3 +19,5 @@
 /Users/michaelhsu/Documents/Github/Unity-Projects/Block Breaker/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/michaelhsu/Documents/Github/Unity-Projects/Block Breaker/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/michaelhsu/Documents/Github/Unity-Projects/Block Breaker/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/michaelhsu/Documents/Github/Unity-Projects/Block Breaker/Temp/bin/Debug/UnityEngine.Purchasing.dll
+/Users/michaelhsu/Documents/Github/Unity-Projects/Block Breaker/Temp/bin/Debug/UnityEngine.Advertisements.dll
