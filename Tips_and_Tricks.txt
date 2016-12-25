@@ -2,6 +2,7 @@
 -Organize Scenes, Scripts, Sounds, Sprites, etc into separate folders
 -A Rigidbody allows the game object to have physics attributes
 	*Usually includes Physics Materials
+	*Physics Materials includes friction and bounce
 -Always a game object & script pair -> a script has to be a part of a game object
 	*ex. MusicPlayer - empty game object with a music script (can use DontDestroyOnLoad)
 	*ex. LevelManager - empty game object with a script that manages changes in scenes
