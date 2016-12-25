@@ -434,13 +434,6 @@ public class ButtonManagerR : MonoBehaviour {
 			}
 
 			// 4th top row
-			if (Input.GetKeyUp (KeyCode.CapsLock)) {
-				PlayerPrefs.SetString ("block-breaker-right-control-text", "CAPS LOCK");
-				text.text = "CAPS LOCK";
-				rightControl = (int)KeyCode.CapsLock;
-				PlayerPrefs.SetInt ("block-breaker-right-control", rightControl);
-				clicked = false;
-			}
 			if (Input.GetKeyUp (KeyCode.A)) {
 				PlayerPrefs.SetString ("block-breaker-right-control-text", "A");
 				text.text = "A";

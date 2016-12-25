@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LoseCollider : MonoBehaviour {
+
+	// Instantiate Level Manager game object
+	public LevelManager levelManager;
+
+	// Called when at least one of the bodies are triggers
+	void OnTriggerEnter2D(Collider2D trigger) {
+		print("Trigger");
+		levelManager.LoadLevel ("Win");
+	}
+
+	// Called when all bodies are colliders
+	void OnCollisionEnter2D(Collision2D collision) {
+		print("Collision");
+	}
+}
