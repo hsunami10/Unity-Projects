@@ -13,9 +13,10 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		// Take difference in position
 		paddleToBallVector = this.transform.position - paddle.transform.position;
-		magnitude = 8;
+		magnitude = 9;
 	}
 	
 	// Update is called once per frame

@@ -6,6 +6,7 @@ public class Paddle : MonoBehaviour {
 
 	int left, right;
 	KeyCode leftKey, rightKey;
+	public Ball ball;
 
 	void Awake() {
 
@@ -21,13 +22,18 @@ public class Paddle : MonoBehaviour {
 		// Get current position, change it, then set current position to altered position
 		if(Input.GetKey(leftKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x - (float).1;
+			position.x = position.x - .15f;
 			this.transform.position = position;
 		}
 		if(Input.GetKey(rightKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x + (float).1;
+			position.x = position.x + .15f;
 			this.transform.position = position;
+		}
+
+		// Restrict paddle movement to boundaries
+		if(gameObject.transform.position.x < 0.9f) {
+
 		}
 	}
 }

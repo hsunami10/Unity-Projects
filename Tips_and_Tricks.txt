@@ -1,10 +1,32 @@
-*Change execution order - Edit, Project Settings, Script Execution Order
+*Change execution order - Edit, Project Settings, Script Execution Order*
+*Prefabs -> Collection of GameObjects and Components that are reusable throughout the game*
+	How to make a prefab
+	1. Create a duplicate of the game object
+	2. Drag the duplicate into a "Prefabs" folder (should turn blue in the hierarchy)
+	3. Whatever changes are made to the prefab in the folder, the same changes are made to the instances of that prefab
+	To make similar prefabs
+	1. Duplicate the prefab that you want to change
+	2. Make changes to the duplicated prefab
+
+Snap to grid -> Edit, Snap Settings, Edit how much you want the objects to move on the axis, then select all objects
+****Hold command and move to snap to grid*****
+
 -Movement by Mouse tutorial: https://www.udemy.com/unitycourse/learn/v4/t/lecture/1950096
--Organize Scenes, Scripts, Sounds, Sprites, etc into separate folders
+
 -A Rigidbody allows the game object to have physics attributes
 	*Usually includes Physics Materials
 	*Physics Materials includes friction and bounce
+	Types:
+		-Static -> doesn’t move
+		-Kinematic -> doesn’t move unless you tell it to move (ie. controls)
+		-Dynamic -> follows physics scenarios
+
 -Always a game object & script pair -> a script has to be a part of a game object
 	*ex. MusicPlayer - empty game object with a music script (can use DontDestroyOnLoad)
 	*ex. LevelManager - empty game object with a script that manages changes in scenes
+
 -Camera "size" is half the height
+=====================================================================================
+Organization:
+	Scenes, Fonts, Materials (Physics, Render, etc.), Prefabs, Scripts, Sounds, Sprites
+Use PlayerPrefs to store floats, ints, and strings, into the computer

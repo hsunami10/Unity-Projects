@@ -6,6 +6,7 @@
 	<li><a href="https://www.gimp.org/">Gimp</a></li>
 	<li><a href="http://www.dafont.com/">Dafont</a></li>
 	<li><a href="http://www.freesound.org/">Freesound</li>
+	<li><a href="http://soundbible.com/">SoundBible</li>
 </ul>
 <hr>
 <h3>Number Wizard</h3> <p>is a simple Unity console game that guesses the player's number in a certain range. It is only runnable through Unity3D.</p>
