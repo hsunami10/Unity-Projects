@@ -1,3 +1,4 @@
+*Change execution order - Edit, Project Settings, Script Execution Order
 -Movement by Mouse tutorial: https://www.udemy.com/unitycourse/learn/v4/t/lecture/1950096
 -Organize Scenes, Scripts, Sounds, Sprites, etc into separate folders
 -A Rigidbody allows the game object to have physics attributes

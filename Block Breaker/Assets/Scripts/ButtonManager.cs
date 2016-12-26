@@ -630,13 +630,6 @@ public class ButtonManager : MonoBehaviour {
 				PlayerPrefs.SetInt ("block-breaker-left-control", leftControl);
 				clicked = false;
 			}
-			if (Input.GetKeyUp (KeyCode.Space)) {
-				PlayerPrefs.SetString ("block-breaker-left-control-text", "SPACE");
-				text.text = "SPACE";
-				leftControl = (int)KeyCode.Space;
-				PlayerPrefs.SetInt ("block-breaker-left-control", leftControl);
-				clicked = false;
-			}
 			if (Input.GetKeyUp (KeyCode.RightControl)) {
 				PlayerPrefs.SetString ("block-breaker-left-control-text", "CONTROL");
 				text.text = "CONTROL";

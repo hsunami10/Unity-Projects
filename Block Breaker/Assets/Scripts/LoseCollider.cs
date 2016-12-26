@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// End the game using triggers
+/// </summary>
 public class LoseCollider : MonoBehaviour {
 
 	// Instantiate Level Manager game object
