@@ -12,12 +12,11 @@ public class LoseCollider : MonoBehaviour {
 
 	// Called when at least one of the bodies are triggers
 	void OnTriggerEnter2D(Collider2D trigger) {
-		print("Trigger");
-		levelManager.LoadLevel ("Win");
+		levelManager.LoadLevel ("Lose");
 	}
 
 	// Called when all bodies are colliders
 	void OnCollisionEnter2D(Collision2D collision) {
-		print("Collision");
+		
 	}
 }

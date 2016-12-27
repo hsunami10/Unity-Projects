@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour {
 	private Vector3 paddleToBallVector, randomVec;
 	int randDeg;
 	float randRad, x, y, magnitude;
-	private bool hasStarted = false;
+	public static bool hasStarted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour {
 		// Take difference in position
 		paddleToBallVector = this.transform.position - paddle.transform.position;
 		magnitude = 9;
+		hasStarted = false;
 	}
 	
 	// Update is called once per frame

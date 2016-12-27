@@ -22,12 +22,12 @@ public class Paddle : MonoBehaviour {
 		// Get current position, change it, then set current position to altered position
 		if(Input.GetKey(leftKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x - .15f;
+			position.x = position.x - .16f;
 			this.transform.position = position;
 		}
 		if(Input.GetKey(rightKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x + .15f;
+			position.x = position.x + .16f;
 			this.transform.position = position;
 		}
 

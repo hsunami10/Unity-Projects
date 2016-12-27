@@ -1,8 +1,7 @@
 *Change execution order - Edit, Project Settings, Script Execution Order*
 *Prefabs -> Collection of GameObjects and Components that are reusable throughout the game*
 	How to make a prefab
-	1. Create a duplicate of the game object
-	2. Drag the duplicate into a "Prefabs" folder (should turn blue in the hierarchy)
+	-Drag object into the prefab folder
 	3. Whatever changes are made to the prefab in the folder, the same changes are made to the instances of that prefab
 	To make similar prefabs
 	1. Duplicate the prefab that you want to change

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Loads and quits scenes
@@ -9,7 +10,7 @@ public class LevelManager : MonoBehaviour {
 
 	// Load scenes
 	public void LoadLevel(string name) {
-		Application.LoadLevel (name);
+		SceneManager.LoadScene (name);
 	}
 
 	// Quit application

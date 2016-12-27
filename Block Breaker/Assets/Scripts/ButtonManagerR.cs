@@ -54,8 +54,8 @@ public class ButtonManagerR : MonoBehaviour {
 				clicked = false;
 			}
 			if (Input.GetKeyUp (KeyCode.LeftArrow)) {
-				PlayerPrefs.SetString ("block-breaker-right-control-text", "right ARROW");
-				text.text = "right ARROW";
+				PlayerPrefs.SetString ("block-breaker-right-control-text", "LEFT ARROW");
+				text.text = "LEFT ARROW";
 				rightControl = (int)KeyCode.LeftArrow;
 				PlayerPrefs.SetInt ("block-breaker-right-control", rightControl);
 				clicked = false;
