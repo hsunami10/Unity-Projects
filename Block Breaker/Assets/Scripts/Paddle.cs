@@ -17,6 +17,8 @@ public class Paddle : MonoBehaviour {
 		leftKey = (KeyCode)left;
 		rightKey = (KeyCode)right;
 		changeXPerFrame = .16f;
+
+		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -39,10 +41,18 @@ public class Paddle : MonoBehaviour {
 			position.x = 1.22f;
 			this.transform.position = position;
 		}
-		else if(gameObject.transform.position.x <= 1.25f) {
+		if(gameObject.transform.position.x >= 14.67f) {
 			Vector3 position = this.transform.position;
 			position.x = 14.67f;
 			this.transform.position = position;
+		}
+
+		// Paused menu
+		if (PlayerPrefs.GetString ("block-breaker-paused") == "true") {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+		}
+		else {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 	}
 }

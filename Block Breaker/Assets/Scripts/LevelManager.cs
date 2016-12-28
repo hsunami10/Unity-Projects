@@ -56,10 +56,25 @@ public class LevelManager : MonoBehaviour {
 		Application.OpenURL (url);
 	}
 
+	// Continue game
+	public void Continue() {
+		PlayerPrefs.SetString ("block-breaker-paused", "false");
+		Time.timeScale = 1f;
+	}
+
+	// Restart level
+	public void Restart() {
+		PlayerPrefs.SetString ("block-breaker-paused", "false");
+		Time.timeScale = 1f;
+		SceneManager.LoadScene (Application.loadedLevel);
+	}
+
 	void Update() {
 		// Handle game paused here
 		if (Input.GetKeyDown (KeyCode.Escape)) {
+			// Change time scale
 			Time.timeScale = 0f;
+			PlayerPrefs.SetString ("block-breaker-paused", "true");
 		}
 	}
 }

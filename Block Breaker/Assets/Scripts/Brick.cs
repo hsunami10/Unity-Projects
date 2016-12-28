@@ -85,5 +85,13 @@ public class Brick : MonoBehaviour {
 		// If all bricks are destroyed, load congratulations scene
 		if(bricksDestroyed == totalBricks)
 			SceneManager.LoadScene ("Beat_Level");
+
+		// Paused menu
+		if (PlayerPrefs.GetString ("block-breaker-paused") == "true") {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+		}
+		else {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
 	}
 }

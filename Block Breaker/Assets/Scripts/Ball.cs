@@ -20,6 +20,8 @@ public class Ball : MonoBehaviour {
 		paddleToBallVector = this.transform.position - paddle.transform.position;
 		magnitude = 9;
 		hasStarted = false;
+
+		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,14 @@ public class Ball : MonoBehaviour {
 				gameObject.GetComponent<Rigidbody2D>().velocity = randomVec * magnitude;
 				hasStarted = true;
 			}
+		}
+
+		// Paused menu
+		if (PlayerPrefs.GetString ("block-breaker-paused") == "true") {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+		}
+		else {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 	}
 }
