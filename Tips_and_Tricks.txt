@@ -7,7 +7,11 @@
 	1. Duplicate the prefab that you want to change
 	2. Make changes to the duplicated prefab
 
-Snap to grid -> Edit, Snap Settings, Edit how much you want the objects to move on the axis, then select all objects
+Find a game object through script -> GameObject.FindObjectOfType<TypeOfGameObject>();
+
+Change sprites on collision: Make a Sprite[] array, store sprites (such as broken blocks) into that array, and run through the sprite sheet (can animate like this too)
+
+Snap to grid -> Edit, Snap Settings, Edit one unit size on the grid, then select all objects
 ****Hold command and move to snap to grid*****
 
 -Movement by Mouse tutorial: https://www.udemy.com/unitycourse/learn/v4/t/lecture/1950096

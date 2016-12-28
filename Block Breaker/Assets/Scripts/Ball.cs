@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-	// Get access to the paddle
-	public Paddle paddle;
+	private Paddle paddle;
 	private Vector3 paddleToBallVector, randomVec;
-	int randDeg;
-	float randRad, x, y, magnitude;
+	private int randDeg;
+	private float randRad, x, y, magnitude;
 	public static bool hasStarted = false;
 
 	// Use this for initialization
 	void Start () {
+
+		// Automatically get access to paddle
+		paddle = GameObject.FindObjectOfType<Paddle>();
 
 		// Take difference in position
 		paddleToBallVector = this.transform.position - paddle.transform.position;
@@ -32,7 +34,7 @@ public class Ball : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 
 				// Create a random angle between 45-135 degrees
-				randDeg = (int)(Random.value*90 + 45);
+				randDeg = (int)(Random.Range(45f, 135f));
 				randRad = randDeg * Mathf.Deg2Rad;
 				x = Mathf.Cos (randRad);
 				y = Mathf.Sin (randRad);

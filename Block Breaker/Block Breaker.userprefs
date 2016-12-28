@@ -2,10 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Brick.cs">
     <Files>
-      <File FileName="Assets/Scripts/Paddle.cs" Line="12" Column="3" />
-      <File FileName="Assets/Scripts/LoseCollider.cs" Line="15" Column="20" />
-      <File FileName="Assets/Scripts/Ball.cs" Line="29" Column="27" />
-      <File FileName="Assets/Scripts/Brick.cs" Line="26" Column="43" />
+      <File FileName="Assets/Scripts/Brick.cs" Line="28" Column="55" />
+      <File FileName="Assets/Scripts/BeatLevelTitle.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
