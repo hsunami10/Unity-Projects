@@ -7,8 +7,9 @@ public class Ball : MonoBehaviour {
 	private Paddle paddle;
 	private Vector3 paddleToBallVector, randomVec;
 	private int randDeg;
-	private float randRad, x, y, magnitude;
-	public static bool hasStarted = false;
+	private float randRad, x, y;
+	public static float magnitude;
+	private static bool hasStarted = false;
 
 	// Use this for initialization
 	void Start () {

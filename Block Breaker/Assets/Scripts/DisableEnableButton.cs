@@ -13,33 +13,46 @@ public class DisableEnableButton : MonoBehaviour {
 	// Each button has a different level number
 	public int LevelNumber;
 
-	// Use this for initialization
-	void Start () {
-		
-		// If you beat Forest Lvl 1, then enable the Forest Lvl 1+1 button
-		if (PlayerPrefs.GetInt ("block-breaker-beat-forest-level") == 1 && LevelNumber == 2) {
-			button.interactable = true;
+	// List of enabled buttons
+	private static List<int> enableButtonsForest = new List<int>();
+	private static int[] enableButtonsForestArray;
+
+	void Awake() {
+		if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 1 && LevelNumber == 2) {
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 2 && LevelNumber == 3) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 3 && LevelNumber == 4) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 4 && LevelNumber == 5) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 5 && LevelNumber == 6) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 6 && LevelNumber == 7) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 7 && LevelNumber == 8) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 8 && LevelNumber == 9) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		} else if(PlayerPrefs.GetInt("block-breaker-beat-forest-level") == 9 && LevelNumber == 10) {
-			button.interactable = true;
+			enableButtonsForest.Add (LevelNumber);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	// Use this for initialization
+	void Start () {
+		enableButtonsForestArray = enableButtonsForest.ToArray ();
+
+		// Account for the one size List on game start -> ex. if LevelNumber = 4, diff = 2, add 2 and 3
+		int diff = enableButtonsForestArray[0] - 2;
+		for(int i = 0; i < diff; i++) {
+			enableButtonsForest.Add (i+2);
+		}
+		enableButtonsForestArray = enableButtonsForest.ToArray ();
+
+		for(int i = 0; i < enableButtonsForestArray.Length; i++) {
+			if (LevelNumber == enableButtonsForestArray [i])
+				button.interactable = true;
+		}
 	}
 }

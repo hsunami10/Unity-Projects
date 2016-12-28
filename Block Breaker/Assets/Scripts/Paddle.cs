@@ -7,7 +7,7 @@ public class Paddle : MonoBehaviour {
 	private int left, right;
 	private KeyCode leftKey, rightKey;
 	public Ball ball;
-	private float changeXPerFrame;
+	public static float changeXPerFrame;
 
 	void Awake() {
 

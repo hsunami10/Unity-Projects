@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Loads and quits scenes
+/// Loads and quits scenes - includes Pause Menu
 /// </summary>
 public class LevelManager : MonoBehaviour {
 
