@@ -18,6 +18,22 @@ public class PlayerController : MonoBehaviour {
 
 	// Controls maximum amount of bank
 	public float tilt;
+	public float fireRate;
+	private float nextFire;
+
+	public GameObject shot;
+
+	// References the transform component of the Game Object attached
+	public Transform shotSpawn;
+
+	void Update() {
+
+		// If true, then nextFire will be updated to the Time.time(sec) + 0.25, which only allows it to be true every 0.25 sec
+		if (Input.GetKey(KeyCode.Space) && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+		}
+	}
 
 	// Update every frame before every physics step - use this for rigidbodies instead of Update()
 	void FixedUpdate() {

@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Brick.cs">
     <Files>
+      <File FileName="Assets/Scripts/BackgroundVolumeSlider.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/LevelManager.cs" Line="92" Column="18" />
-      <File FileName="Assets/Scripts/Brick.cs" Line="51" Column="19" />
-      <File FileName="Assets/Scripts/BeatLevelTitle.cs" Line="63" Column="71" />
-      <File FileName="Assets/Scripts/DisableEnableButton.cs" Line="31" Column="4" />
-      <File FileName="Assets/Scripts/Paddle.cs" Line="20" Column="26" />
+      <File FileName="Assets/Scripts/Brick.cs" Line="10" Column="37" />
+      <File FileName="Assets/Scripts/BeatLevelTitle.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DisableEnableButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Paddle.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
