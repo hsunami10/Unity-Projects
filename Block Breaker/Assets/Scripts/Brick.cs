@@ -19,6 +19,8 @@ public class Brick : MonoBehaviour {
 		bricksDestroyed = 0;
 
 		// Check the current environment and level, and set the total bricks in that level
+
+		// Forest
 		if (PlayerPrefs.GetInt ("block-breaker-current-level") == 1 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
 			totalBricks = 17;
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 2 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
@@ -30,16 +32,37 @@ public class Brick : MonoBehaviour {
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 5 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
 			totalBricks = 36;
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 6 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
-			totalBricks = 49;
+			totalBricks = 37;
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 7 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
-			totalBricks = 44;
+			totalBricks = 43;
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 8 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
 			totalBricks = 54;
-/*		else if(PlayerPrefs.GetInt ("block-breaker-current-level") == 9 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
-			// Total bricks
-		else if(PlayerPrefs.GetInt ("block-breaker-current-level") == 10 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
-			// Total bricks
-		*/
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 9 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
+			totalBricks = 39;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 10 && PlayerPrefs.GetString ("block-breaker-current-environment") == "forest")
+			totalBricks = 61;
+
+		// Snow
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 11 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 32;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 12 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 28;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 13 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 40;
+	/*	else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 14 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 34;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 15 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 36;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 16 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 38;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 17 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 44;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 18 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 54;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 19 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 39;
+		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 20 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
+			totalBricks = 61;*/
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
@@ -83,7 +106,7 @@ public class Brick : MonoBehaviour {
 		}
 
 		// If all bricks are destroyed, load congratulations scene
-		if(bricksDestroyed == totalBricks)
+		if (bricksDestroyed == totalBricks)
 			SceneManager.LoadScene ("Beat_Level");
 
 		// Paused menu

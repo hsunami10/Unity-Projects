@@ -6,8 +6,9 @@ public class Paddle : MonoBehaviour {
 
 	private int left, right;
 	private KeyCode leftKey, rightKey;
-	public Ball ball;
+	private Ball ball;
 	public static float changeXPerFrame;
+	public bool autoPlay = false;
 
 	void Awake() {
 
@@ -20,9 +21,26 @@ public class Paddle : MonoBehaviour {
 
 		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 	}
+
+	void Start() {
+		ball = GameObject.FindObjectOfType<Ball> ();
+	}
+
+	// Can use Mathf.Clamp(value, min, max)
+	void AutoPlay() {
+		// Set x position of paddle equal to the x position of the ball
+		Vector3 paddlePos = this.transform.position;
+		Vector3 ballPos = ball.transform.position;
+		paddlePos.x = ballPos.x;
+		this.transform.position = paddlePos;
+	}
+
 	// Update is called once per frame
 	void Update () {
 
+		if (autoPlay)
+			AutoPlay ();
+		
 		// Get current position, change it, then set current position to altered position
 		if(Input.GetKey(leftKey)) {
 			Vector2 position = this.transform.position;
@@ -48,11 +66,9 @@ public class Paddle : MonoBehaviour {
 		}
 
 		// Paused menu
-		if (PlayerPrefs.GetString ("block-breaker-paused") == "true") {
+		if (PlayerPrefs.GetString ("block-breaker-paused") == "true")
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
-		}
-		else {
+		else
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
-		}
 	}
 }

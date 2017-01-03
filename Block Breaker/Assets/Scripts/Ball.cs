@@ -11,6 +11,9 @@ public class Ball : MonoBehaviour {
 	public static float magnitude;
 	private static bool hasStarted = false;
 
+	// Array of different audio sources
+	public AudioSource[] audio = new AudioSource[3];
+
 	// Use this for initialization
 	void Start () {
 
@@ -56,5 +59,15 @@ public class Ball : MonoBehaviour {
 		else {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+	}
+
+	// Play different sounds on differnt collisions
+	void OnCollisionEnter2D(Collision2D collision) {
+		if(collision.gameObject.name == "Paddle")
+			audio [0].Play ();
+		else if(collision.gameObject.name.Contains("block"))
+			audio [1].Play ();
+		else if(collision.gameObject.name.Contains("Wall"))
+			audio [2].Play ();
 	}
 }
