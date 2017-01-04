@@ -12,7 +12,7 @@ public class Mover : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		// Local z axis -> transform.forward
+		// Local positive z axis -> transform.forward
 		this.GetComponent<Rigidbody> ().velocity = transform.forward * speed;
 	}
 	

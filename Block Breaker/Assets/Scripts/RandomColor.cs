@@ -13,6 +13,7 @@ public class RandomColor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1f;
 		text.text = "Block Breaker";
 
 		// Starting in 0 seconds, the color will change every 0.3001 seconds

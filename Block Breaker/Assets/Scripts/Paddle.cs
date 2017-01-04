@@ -7,7 +7,7 @@ public class Paddle : MonoBehaviour {
 	private int left, right;
 	private KeyCode leftKey, rightKey;
 	private Ball ball;
-	public static float changeXPerFrame;
+	public float speed;
 	public bool autoPlay = false;
 
 	void Awake() {
@@ -17,7 +17,6 @@ public class Paddle : MonoBehaviour {
 		right = PlayerPrefs.GetInt ("block-breaker-right-control");
 		leftKey = (KeyCode)left;
 		rightKey = (KeyCode)right;
-		changeXPerFrame = .16f;
 
 		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 	}
@@ -35,6 +34,11 @@ public class Paddle : MonoBehaviour {
 		this.transform.position = paddlePos;
 	}
 
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag.Contains ("Power"))
+			Destroy (other.gameObject);
+	}
+
 	// Update is called once per frame
 	void Update () {
 
@@ -44,12 +48,12 @@ public class Paddle : MonoBehaviour {
 		// Get current position, change it, then set current position to altered position
 		if(Input.GetKey(leftKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x - changeXPerFrame;
+			position.x = position.x - speed;
 			this.transform.position = position;
 		}
 		if(Input.GetKey(rightKey)) {
 			Vector2 position = this.transform.position;
-			position.x = position.x + changeXPerFrame;
+			position.x = position.x + speed;
 			this.transform.position = position;
 		}
 

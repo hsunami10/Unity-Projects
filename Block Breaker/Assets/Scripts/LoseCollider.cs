@@ -15,7 +15,10 @@ public class LoseCollider : MonoBehaviour {
 	}
 	// Called when at least one of the bodies are triggers
 	void OnTriggerEnter2D(Collider2D trigger) {
-		levelManager.LoadLevel ("Lose");
+		if(trigger.tag == "Ball")
+			levelManager.LoadLevel ("Lose");
+		if (trigger.tag == "Power Up" || trigger.tag == "Power Down")
+			Destroy (trigger.gameObject);
 	}
 
 	// Called when all bodies are colliders

@@ -1,7 +1,12 @@
 *Change execution order - Edit, Project Settings, Script Execution Order*
+
 *Prefabs -> Collection of GameObjects and Components that are reusable throughout the game*
 
-3D Graphics - Attach a Texture to a Material, attach a Material to a 3D Object (primitive and placeholder object)
+Game Controller -> runs game, spawns hazards, keep track of score, end game, etc.
+
+Add tags and empty game objects in the hierarchy for organization
+
+Import 3D Graphics - Attach a Texture to a Material, attach a Material to a 3D Object (primitive and placeholder object)
 
 	How to make a prefab
 	-Drag object into the prefab folder

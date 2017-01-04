@@ -8,13 +8,20 @@ public class Brick : MonoBehaviour {
 	public int maxHits;
 	private int timesHit;
 	private static int bricksDestroyed;
+	public GameObject[] powers;
+	private int random;
 
 	// Total number of bricks in each lvl - doesn't count invincible bricks
 	private int totalBricks;
 
 	// Use this for initialization
 	void Start () {
-		
+
+		random = (int)Random.Range (4, 7.99f);
+
+		// Reset values
+		Time.timeScale = 1f;
+
 		timesHit = 0;
 		bricksDestroyed = 0;
 
@@ -103,6 +110,12 @@ public class Brick : MonoBehaviour {
 		if (timesHit >= maxHits) {
 			bricksDestroyed++;
 			Destroy (gameObject);
+
+			// Spawn a power every 4-7 blocks destroyed - only reset random when this code runs
+			if (bricksDestroyed % random == 0) {
+				Instantiate (powers [(int)Random.Range (0, 1.99f)], this.transform.position, this.transform.rotation);
+				random = (int)Random.Range (4, 7.99f);
+			}
 		}
 
 		// If all bricks are destroyed, load congratulations scene
