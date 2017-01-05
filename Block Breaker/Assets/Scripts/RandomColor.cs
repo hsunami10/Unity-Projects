@@ -13,6 +13,7 @@ public class RandomColor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		PlayerPrefs.DeleteKey ("block-breaker-power-active");
 		Time.timeScale = 1f;
 		text.text = "Block Breaker";
 

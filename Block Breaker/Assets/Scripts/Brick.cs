@@ -10,6 +10,8 @@ public class Brick : MonoBehaviour {
 	private static int bricksDestroyed;
 	public GameObject[] powers;
 	private int random;
+	public static float powerLast;
+	private bool once;
 
 	// Total number of bricks in each lvl - doesn't count invincible bricks
 	private int totalBricks;
@@ -17,13 +19,14 @@ public class Brick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		random = (int)Random.Range (4, 7.99f);
+		PlayerPrefs.SetInt ("random", (int)Random.Range (4, 7.99f));
+		PlayerPrefs.SetString ("block-breaker-power-active", "false");
 
 		// Reset values
-		Time.timeScale = 1f;
-
 		timesHit = 0;
 		bricksDestroyed = 0;
+		Time.timeScale = 1f;
+		once = false;
 
 		// Check the current environment and level, and set the total bricks in that level
 
@@ -70,6 +73,9 @@ public class Brick : MonoBehaviour {
 			totalBricks = 39;
 		else if (PlayerPrefs.GetInt ("block-breaker-current-level") == 20 && PlayerPrefs.GetString ("block-breaker-current-environment") == "snow")
 			totalBricks = 61;*/
+
+		// Each power lasts for 10 sec
+		powerLast = 10 * totalBricks * Time.timeScale;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
@@ -105,6 +111,38 @@ public class Brick : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		powerLast -= Time.deltaTime;
+
+		print (powerLast + " " + Time.timeScale);
+
+		// If a power is activated, then delete it after 10sec
+		if(PlayerPrefs.GetString("block-breaker-power-active") == "true") {
+			
+			// If time is changed, then change the 10sec according to the time scale ONCE
+			if (Time.timeScale != 1f && !once) {
+				powerLast = 10 * totalBricks * Time.timeScale;
+				once = true;
+			}
+
+			// powerLast decreases too slowly??? Fix this!!!!
+			powerLast -= Time.deltaTime;
+			print (powerLast + " " + Time.timeScale);
+
+			// Disable powers after 10 seconds
+			if(powerLast <= 0) {
+
+				if (Time.timeScale != 1f) {
+					Time.timeScale = 1f;
+					Paddle.speed = 0.16f;
+				}
+
+				// Reset values
+				powerLast = 10 * totalBricks * Time.timeScale;
+
+				// Disable
+				PlayerPrefs.SetString("block-breaker-power-active", "false");
+			}
+		}
 
 		// If the times a block is hit equates the max number of hits, then it's destroyed
 		if (timesHit >= maxHits) {
@@ -112,9 +150,10 @@ public class Brick : MonoBehaviour {
 			Destroy (gameObject);
 
 			// Spawn a power every 4-7 blocks destroyed - only reset random when this code runs
-			if (bricksDestroyed % random == 0) {
-				Instantiate (powers [(int)Random.Range (0, 1.99f)], this.transform.position, this.transform.rotation);
-				random = (int)Random.Range (4, 7.99f);
+			if (bricksDestroyed % PlayerPrefs.GetInt("random") == 0) {
+				Instantiate (powers [(int)Random.Range (1, 1.99f)], this.transform.position, this.transform.rotation);
+				
+				PlayerPrefs.SetInt ("random", (int)Random.Range (4, 7.99f));
 			}
 		}
 

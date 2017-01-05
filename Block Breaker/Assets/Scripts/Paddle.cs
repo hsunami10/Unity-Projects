@@ -7,7 +7,7 @@ public class Paddle : MonoBehaviour {
 	private int left, right;
 	private KeyCode leftKey, rightKey;
 	private Ball ball;
-	public float speed;
+	public static float speed;
 	public bool autoPlay = false;
 
 	void Awake() {
@@ -19,6 +19,7 @@ public class Paddle : MonoBehaviour {
 		rightKey = (KeyCode)right;
 
 		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		speed = 0.16f;
 	}
 
 	void Start() {
