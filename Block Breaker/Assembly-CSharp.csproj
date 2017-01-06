@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Paddle.cs" />
      <Compile Include="Assets\Scripts\PauseButton.cs" />
      <Compile Include="Assets\Scripts\PlaySpace.cs" />
+     <Compile Include="Assets\Scripts\PowerTimer.cs" />
      <Compile Include="Assets\Scripts\Powers.cs" />
      <Compile Include="Assets\Scripts\RandomColor.cs" />
      <Compile Include="Assets\Scripts\Snow.cs" />

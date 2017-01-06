@@ -35,10 +35,10 @@ public class Paddle : MonoBehaviour {
 		this.transform.position = paddlePos;
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+/*	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag.Contains ("Power"))
 			Destroy (other.gameObject);
-	}
+	}*/
 
 	// Update is called once per frame
 	void Update () {
