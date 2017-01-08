@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{5C2FBC3F-3A39-39F1-44D5-6EA54C42BE84}") = "Two Steps From Hell", "Assembly-CSharp.csproj", "{4757B41E-CFD7-D8E3-DA8E-0C9E8E837C1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4757B41E-CFD7-D8E3-DA8E-0C9E8E837C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4757B41E-CFD7-D8E3-DA8E-0C9E8E837C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4757B41E-CFD7-D8E3-DA8E-0C9E8E837C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4757B41E-CFD7-D8E3-DA8E-0C9E8E837C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

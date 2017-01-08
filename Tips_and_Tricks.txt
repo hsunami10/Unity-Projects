@@ -41,3 +41,18 @@ Snap to grid -> Edit, Snap Settings, Edit one unit size on the grid, then select
 Organization:
 	Scenes, Fonts, Materials (Physics, Render, etc.), Prefabs, Scripts, Sounds, Sprites
 Use PlayerPrefs to store floats, ints, and strings, into the computer
+
+=====================================================================================
+
+Mobile:
+
+Use Input static class to get touches
+	-ex: Touch myTouch = Input.GetTouch(0);
+	-myTouch.fingerId -> Track actions of a specific touch
+	-myTouch.position -> Vector2 of position of touch in screen space (pixels)
+	-myTouch.deltaPosition -> Takes difference of touch position between 2 frames (movement)
+	-myTouch.deltaTime
+	-myTouch.tapCount -> measure of how many taps are made in quick succession (multiple taps at once will be treated as a single finger around the screen)
+	-myTouch.phase = TouchPhase. Began, Canceled, Ended, Moved, Stationary
+
+(Access all of touch array: Touch[] myTouches = Input.touches;
