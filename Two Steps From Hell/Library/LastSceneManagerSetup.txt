@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/Scenes/Playlist_Menu.unity
+  isLoaded: 1
+  isActive: 1
