@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
 	private Matrix4x4 calibrationMatrix;
+	public Image sceneFade;
 
-	// Use this for initialization
-	void Start () {
+	void Awake() {
 		
 	}
 
+	// Use this for initialization
+	void Start () {
+
+		// If the previous scene is faded out, create the black background
+		if (PlayerPrefs.GetString ("faded out") == "true" && PlayerPrefs.GetString ("scene fade") == "false")
+			Instantiate (sceneFade, gameObject.transform.position, gameObject.transform.rotation);
+	}
+
 	public void LoadLevel(string name) {
-		SceneManager.LoadScene (name);
+		// Swap values every time LoadLevel is called
+		Instantiate (sceneFade, gameObject.transform.position, gameObject.transform.rotation);
+		PlayerPrefs.SetString ("LoadLevel", name);
 	}
 
 	public void SplashButtonClicked(string cond) {
@@ -23,9 +34,6 @@ public class LevelManager : MonoBehaviour {
 	public void ReCalibrate() {
 		PlayerPrefs.SetFloat ("reorient x", Input.acceleration.x);
 		PlayerPrefs.SetFloat ("reorient y", Input.acceleration.y);
-
-		print(PlayerPrefs.GetFloat("reorient x"));
-		print(PlayerPrefs.GetFloat("reorient y"));
 	}
 
 	public void UnPauseGame() {

@@ -43,3 +43,4 @@
 /Users/michaelhsu/Documents/Github/Unity-Projects/B-O-A-T/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/michaelhsu/Documents/Github/Unity-Projects/B-O-A-T/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 /Users/michaelhsu/Documents/Github/Unity-Projects/B-O-A-T/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/michaelhsu/Documents/Github/Unity-Projects/B-O-A-T/Temp/bin/Debug/UnityEditor.Android.Extensions.dll

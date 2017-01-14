@@ -1,0 +1,6 @@
+What happens in a nutshell:
+     Name Server (checks AppID and which region the client wants to use)
+     Master Server -> has multiple regional servers
+     Game Server -> when a game room is created
+
+
