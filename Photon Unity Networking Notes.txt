@@ -3,4 +3,7 @@ What happens in a nutshell:
      Master Server -> has multiple regional servers
      Game Server -> when a game room is created
 
+A lobby lists available rooms
+
+
 
