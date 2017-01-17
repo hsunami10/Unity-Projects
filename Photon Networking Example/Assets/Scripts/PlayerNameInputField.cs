@@ -21,7 +21,6 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 
 		#region MonoBehavior Callbacks
 		void Start () {
-
 			string defaultName = "";
 			InputField _inputField = gameObject.GetComponent<InputField> ();
 
@@ -41,12 +40,12 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 
 		#region Public Methods
 		/// <summary>
-		/// Sets the name of the player, and saves it in PlayerPrefs
+		/// Sets the name of the player, and saves it in PlayerPrefs (onValueChanged InputField)
 		/// </summary>
 		/// <param name="value">Value.</param>
 		public void SetPlayerName(string value) {
 
-			// Forces trailing white space in case it's an empty string, so it updates
+			// Forces trailing white space in case it's an empty string, so it updates to no name
 			PhotonNetwork.playerName = value + " ";
 
 			PlayerPrefs.SetString (playerNamePrefKey, value);

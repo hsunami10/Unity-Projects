@@ -1,9 +1,20 @@
-What happens in a nutshell:
+What happens in a nutshell -> Connection Order:
      Name Server (checks AppID and which region the client wants to use)
      Master Server -> has multiple regional servers
      Game Server -> when a game room is created
 
 A lobby lists available rooms
 
+For a Prefab to be instantiated over a network, it has to be in the "Resources" folder
 
+Player for Networking:
+	-needs a PhotonView Component
+	-for the PhotonView to synchronize, add a PhotonTransformView Component
+	****ANYTHING THAT NEEDS TO BE SYNCHRONIZED, ADD TO PHOTONVIEW COMPONENT****
+	-check synchronize "…" to whatever needs to be synchronized over the network
+	PhotonTransformView
+		-interpolate options -> lerp (higher speed, faster)
+	
+	EVERYTHING FOLLOWS photonView.isMine sequence -> if only local player, then allow input, camera, sprites from input, animations, etc.
 
+	implement IPunObservable

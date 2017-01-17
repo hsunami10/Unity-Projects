@@ -1,5 +1,14 @@
 *Change execution order - Edit, Project Settings, Script Execution Order*
 
+
+
+Updates:
+	FixedUpdate() - Update before every physics
+	Update() - Updates before every frame
+	LateUpdate() - Updates after Update() [usually for cameras]
+
+
+
 *Prefabs -> Collection of GameObjects and Components that are reusable throughout the game*
 
 Game Controller -> runs game, spawns hazards, keep track of score, end game, etc.

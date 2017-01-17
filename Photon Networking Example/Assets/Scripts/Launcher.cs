@@ -74,7 +74,7 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 				// Join a random room. Will be notified if fails
 				PhotonNetwork.JoinRandomRoom ();
 			}
-			// Else connect to Photon Online Server
+			// Else connect to Photon Online Server -> this is run before all PUN callbacks
 			else {
 				PhotonNetwork.ConnectUsingSettings (_gameVersion);
 			}
@@ -95,7 +95,7 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 			// Call only if the button is pressed, since when you return from the game to the lobby,
 			// you disconnect from the game server and join the master server again
 			if(isConnecting) {
-				Debug.Log ("DemoAnimator/Launcher: OnConnectedToMaster() was called by PUN");
+				Debug.Log ("Connected to the Master Server");
 
 				// Attempt to join a potential existing room.
 				// If no room, callback with OnPhotonRandomJoinFailed()
@@ -104,21 +104,21 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 		}
 
 		public override void OnDisconnectedFromPhoton() {
-			Debug.LogWarning("DemoAnimator/Launcher: OnDisconnectedFromPhoton() was called by PUN"); 
+			Debug.LogWarning("Disconnected from Photon Server"); 
 
 			progressLabel.SetActive(false);
 			controlPanel.SetActive(true);
 		}
 
 		public override void OnPhotonRandomJoinFailed(object[] codeAndMsg) {
-			Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
+			Debug.Log("No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {MaxPlayers = MaxPLayersPerRoom}, null);");
 
 			// Create a room when failed to join a random room
 			PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
 		}
 
 		public override void OnJoinedRoom() {
-			Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+			Debug.Log("Entered room");
 
 			// Only the 1st player loads -> else use PhotonNetwork.automaticallySyncScene
 			if(PhotonNetwork.room.PlayerCount == 1) {
