@@ -34,6 +34,7 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 			SceneManager.LoadScene ("Launcher");
 		}
 
+		// When a player connects, load the corresponding room
 		public override void OnPhotonPlayerConnected(PhotonPlayer other) {
 			// Not seen if you're the player connecting
 			Debug.Log( "OnPhotonPlayerConnected() " + other.NickName ); 

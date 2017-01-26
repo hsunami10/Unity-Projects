@@ -15,6 +15,6 @@ Player for Networking:
 	PhotonTransformView
 		-interpolate options -> lerp (higher speed, faster)
 	
-	EVERYTHING FOLLOWS photonView.isMine sequence -> if only local player, then allow input, camera, sprites from input, animations, etc.
+	EVERYTHING FOLLOWS photonView.isMine sequence -> if only local player, then allow input, camera following, sprites from input, animations, etc.
 
 	implement IPunObservable

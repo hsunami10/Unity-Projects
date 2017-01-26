@@ -1,6 +1,13 @@
-﻿using System.Collections;
+﻿#if UNITY_5 && (!UNITY_5_0 && !UNITY_5_1 && !UNITY_5_2 && ! UNITY_5_3) || UNITY_6
+#define UNITY_MIN_5_4
+#endif
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+// Since there are multiple PlayerManager scripts running, photonView.isMine determines the local player
 
 namespace Com.asianinvasion.PhotonNetworkingExample {
 	/// <summary>
@@ -9,12 +16,16 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 	/// IPunObservable allows the sending of data between local and network players
 	public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 
+		#region Public Variables
 		public GameObject beams;
 		bool isFiring;
 		public static GameObject LocalPlayerInstance;
 
 		[Tooltip("Current health of player")]
 		public float Health = 1f;
+
+		public GameObject PlayerUIPrefab;
+		#endregion
 
 		void Awake() {
 			beams.SetActive (false);
@@ -27,6 +38,7 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 			DontDestroyOnLoad (this.gameObject);
 		}
 
+		#region Monobehaviour Callbacks
 		void Start() {
 			// Make camera only follow local player, since there are multple cameras
 			CameraWork _cameraWork = gameObject.GetComponent<CameraWork> ();
@@ -36,6 +48,21 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 				// All other players have photonView.isMine set to false
 				if (photonView.isMine)
 					_cameraWork.OnStartFollowing ();
+			}
+
+			// Reset players position when out of arena
+			#if UNITY_MIN_5_4
+			// Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
+			UnityEngine.SceneManagement.SceneManager.sceneLoaded += (scene, loadingMode) =>
+			{
+				this.CalledOnLevelWasLoaded(scene.buildIndex);
+			};
+			#endif
+
+			if (PlayerUIPrefab != null) {
+				GameObject _uiGo = Instantiate (PlayerUIPrefab) as GameObject;
+				// Tells the gameobject's script to run method SetTarget with this instance as a parameter
+				_uiGo.SendMessage ("SetTarget", this, SendMessageOptions.RequireReceiver);
 			}
 		}
 
@@ -53,13 +80,36 @@ namespace Com.asianinvasion.PhotonNetworkingExample {
 			}
 		}
 
+		#if !UNITY_MIN_5_4
+		/// <summary>See CalledOnLevelWasLoaded. Outdated in Unity 5.4.</summary>
+		void OnLevelWasLoaded(int level)
+		{
+		this.CalledOnLevelWasLoaded(level);
+		}
+		#endif
+
+
+		void CalledOnLevelWasLoaded(int level)
+		{
+			// If raycasting downward doesn't hit anything, spawn in the center of the room
+			if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
+			{
+				transform.position = new Vector3(0f, 5f, 0f);
+			}
+
+			// Player UI deleted when a new level was loaded, so instantiate again
+			GameObject _uiGo = Instantiate(this.PlayerUIPrefab) as GameObject;
+			_uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+		}
+		#endregion
+
 		/// <summary>
 		/// Decrease player's health when beams hit it (initially)
 		/// </summary>
 		/// <param name="other">Other.</param>
 		void OnTriggerEnter(Collider other) {
 
-			// Only affect health of local player
+			// Don't do anything if the view is not the local player
 			if (!photonView.isMine)
 				return;
 

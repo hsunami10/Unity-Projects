@@ -200,6 +200,7 @@
      <Compile Include="Assets\Scripts\PlayerAnimatorManager.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerNameInputField.cs" />
+     <Compile Include="Assets\Scripts\PlayerUI.cs" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
